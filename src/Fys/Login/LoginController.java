@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Login;
+package Fys.Login;
 
 import Fys.Tools.Password;
 import Fys.Models.User;
-import com.Main.MainController;
+import Fys.Main.MainController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
