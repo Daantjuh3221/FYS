@@ -11,11 +11,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fys.Controllers.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fys.Controllers.CustomerOverviewController">
    <center>
       <SplitPane prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TextField layoutX="24.0" layoutY="123.0" prefHeight="25.0" prefWidth="204.0" text="Search term..." />
+                  <Text layoutX="24.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers - Overview">
+                     <font>
+                        <Font name="Arial" size="26.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="btnSearchCustomer" layoutX="236.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnSearchCustomerEvent" styleClass="btnRed" text="Search" />
+                  <Button fx:id="btnAddAccount" layoutX="672.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnAddAccountEvent" styleClass="btnRed" text="+ Add Account" />
+                  <TableView layoutX="24.0" layoutY="187.0" prefHeight="463.0" prefWidth="745.0">
+                    <columns>
+                      <TableColumn prefWidth="81.0" text="First Name" />
+                      <TableColumn prefWidth="141.0" text="Last Name" />
+                        <TableColumn minWidth="8.0" prefWidth="51.0" text="Gender" />
+                        <TableColumn prefWidth="101.0" text="Phone Number" />
+                        <TableColumn prefWidth="169.0" text="Home Address" />
+                        <TableColumn prefWidth="144.0" text="Email" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
         </items>
       </SplitPane>
    </center>
@@ -26,7 +46,7 @@
                <children>
                   <ImageView fitHeight="102.0" fitWidth="180.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Content/Image/corendonlogo.jpg" />
+                        <Image url="@../corendonlogo.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -38,7 +58,7 @@
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblUsername" layoutX="60.0" layoutY="16.0" prefHeight="20.0" prefWidth="125.0" text="username" textFill="WHITE">
+                  <Label fx:id="username" layoutX="60.0" layoutY="16.0" prefHeight="20.0" prefWidth="125.0" text="username" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>

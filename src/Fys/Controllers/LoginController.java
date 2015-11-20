@@ -67,8 +67,10 @@ public class LoginController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/Main.fxml"));
         Stage stage = new Stage(StageStyle.DECORATED);
         stage.setScene(new Scene((Pane) loader.load()));
+        stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
         MainController controller = loader.<MainController>getController();
         controller.currentUser(user);
+        
         stage.setTitle("Main");
         stage.show();
         return stage;

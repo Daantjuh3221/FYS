@@ -11,11 +11,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fys.Controllers.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fys.Controllers.LuggageOverviewController">
    <center>
       <SplitPane prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TextField fx:id="textLuggageSearchBox" layoutX="24.0" layoutY="123.0" prefHeight="25.0" prefWidth="204.0" text="Search term..." />
+                  <Text layoutX="24.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage - Overview">
+                     <font>
+                        <Font name="Arial" size="26.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="btnSearchLuggage" layoutX="338.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnSearchLuggageEvent" styleClass="btnRed" text="Search" />
+                  <Button fx:id="btnAddLuggage" layoutX="672.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnAddLuggageEvent" styleClass="btnRed" text="+ Add Luggage" />
+                  <TableView layoutX="24.0" layoutY="187.0" prefHeight="463.0" prefWidth="745.0">
+                    <columns>
+                      <TableColumn prefWidth="86.33334350585938" text="Type" />
+                      <TableColumn prefWidth="105.33334350585938" text="Brand" />
+                        <TableColumn minWidth="8.0" prefWidth="70.0" text="Color" />
+                        <TableColumn prefWidth="89.0" text="Material" />
+                        <TableColumn prefWidth="266.3333740234375" text="Comments" />
+                        <TableColumn prefWidth="70.6666259765625" text="Status" />
+                    </columns>
+                  </TableView>
+                  <SplitMenuButton fx:id="btnLuggageType" layoutX="246.0" layoutY="122.0" mnemonicParsing="false" text="Status">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Lost" />
+                      <MenuItem mnemonicParsing="false" text="Found" />
+                        <MenuItem mnemonicParsing="false" text="Connected" />
+                    </items>
+                  </SplitMenuButton>
+               </children></AnchorPane>
         </items>
       </SplitPane>
    </center>
@@ -26,7 +53,7 @@
                <children>
                   <ImageView fitHeight="102.0" fitWidth="180.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Content/Image/corendonlogo.jpg" />
+                        <Image url="@../corendonlogo.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -38,7 +65,7 @@
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblUsername" layoutX="60.0" layoutY="16.0" prefHeight="20.0" prefWidth="125.0" text="username" textFill="WHITE">
+                  <Label fx:id="username" layoutX="60.0" layoutY="16.0" prefHeight="20.0" prefWidth="125.0" text="username" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>

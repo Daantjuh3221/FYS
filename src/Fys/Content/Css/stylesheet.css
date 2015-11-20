@@ -1,0 +1,41 @@
+.btnWhite {
+    -fx-background-color: 
+        #222222,
+        linear-gradient(#ffffff, #ffffff);
+    -fx-background-radius: 0;
+}
+.btnWhite:hover {
+    -fx-background-color: 
+        #222222,
+        linear-gradient(#424242, #424242);
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+}
+.btnWhite:active {
+    -fx-background-color: 
+        #222222,
+        linear-gradient(#ffffff, #ffffff);
+    -fx-background-radius: 0;
+}
+
+.btnRed {
+    -fx-background-color: 
+        #222222,
+        linear-gradient(#B71C1C, #B71C1C);
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+}
+.btnRed:hover {
+    -fx-background-color: 
+        #222222,
+        linear-gradient(#424242, #424242);
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+}
+.btnRed:active {
+    -fx-background-color: 
+        #222222,
+        linear-gradient(#B71C1C, #B71C1C);
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+}
