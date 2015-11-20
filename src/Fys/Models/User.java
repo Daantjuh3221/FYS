@@ -113,19 +113,18 @@ public class User {
     }
     
     public void insertUser(User user) throws ClassNotFoundException, SQLException{
-        Connection db = new ConnectMysqlServer().dbConnect();
-        String query = ("INSERT INTO users (username,password,firstname,lastname,roleid,registerdate,active) VALUES (?,?,?,?,?,?,?,?)");
-        PreparedStatement preparedStatement = (PreparedStatement) db.prepareStatement(query);
-        preparedStatement.setString(1, user.username);
-        preparedStatement.setString(2, user.password);
-        preparedStatement.setString(3, user.firstname);
-        preparedStatement.setString(4, user.lastname);
-        preparedStatement.setInt(5, user.roleId);
-        preparedStatement.setDate(6, user.registerDate);
-        preparedStatement.setBoolean(7, user.active);
-        preparedStatement.executeUpdate();
-        
-        db.close();
+        try (Connection db = new ConnectMysqlServer().dbConnect()) {
+            String query = ("INSERT INTO users (username,password,firstname,lastname,roleid,registerdate,active) VALUES (?,?,?,?,?,?,?,?)");
+            PreparedStatement preparedStatement = (PreparedStatement) db.prepareStatement(query);
+            preparedStatement.setString(1, user.username);
+            preparedStatement.setString(2, user.password);
+            preparedStatement.setString(3, user.firstname);
+            preparedStatement.setString(4, user.lastname);
+            preparedStatement.setInt(5, user.roleId);
+            preparedStatement.setDate(6, user.registerDate);
+            preparedStatement.setBoolean(7, user.active);
+            preparedStatement.executeUpdate();
+        }
     }
     
     public User getUserById(int id) throws ClassNotFoundException, SQLException{
