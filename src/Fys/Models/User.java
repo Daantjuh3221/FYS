@@ -115,7 +115,6 @@ public class User {
     public void insertUser(User user) throws ClassNotFoundException, SQLException{
         Connection db = new ConnectMysqlServer().dbConnect();
         String query = ("INSERT INTO users (username,password,firstname,lastname,roleid,registerdate,active) VALUES (?,?,?,?,?,?,?,?)");
-        
         PreparedStatement preparedStatement = (PreparedStatement) db.prepareStatement(query);
         preparedStatement.setString(1, user.username);
         preparedStatement.setString(2, user.password);

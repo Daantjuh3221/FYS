@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Fys.Main;
+package Fys.Controllers;
 
 import Fys.Models.User;
 import java.net.URL;

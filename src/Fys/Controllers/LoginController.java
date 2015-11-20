@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Fys.Login;
+package Fys.Controllers;
 
 import Fys.Tools.Password;
 import Fys.Models.User;
-import Fys.Main.MainController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -65,7 +64,7 @@ public class LoginController implements Initializable {
     }   
     
     public Stage showUserDialog(User user) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/Main.fxml"));
         Stage stage = new Stage(StageStyle.DECORATED);
         stage.setScene(new Scene((Pane) loader.load()));
         MainController controller = loader.<MainController>getController();
