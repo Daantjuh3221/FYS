@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class. This class controls the Add Customer screen including it's
+ * FXML Controller class. This class controls the Add Account screen including it's
  * features.
  *
  * @author Jeffrey van der Lingen, IS106-2

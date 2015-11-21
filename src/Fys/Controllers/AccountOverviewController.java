@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class. This class controls the Customer Overview screen 
+ * FXML Controller class. This class controls the Account Overview screen 
  * including it's features.
  *
  * @author Jeffrey van der Lingen, IS106-2
