@@ -22,7 +22,9 @@ import javafx.stage.Stage;
  */
 public class MainController implements Initializable {
 
-    public static User currentUser;
+    private static User currentUser;
+    
+    private Screen screen = new Screen();
     
     @FXML private Label lblUsername;
     
@@ -33,34 +35,25 @@ public class MainController implements Initializable {
     
     @FXML
     private void btnLuggageEvent(ActionEvent event) throws Exception {
-        Screen screen = new Screen();
-        LuggageOverviewController.currentUser = currentUser;
+        LuggageOverviewController.getUser(currentUser);
         ((Node) event.getSource()).getScene().getWindow().hide();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/LuggageOverview.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-        stage.setScene(scene);
-        stage.setTitle("Luggage Overview");
-        stage.show();
+        screen.change("LuggageOverview", "Luggage Overview");
     }
 
     @FXML
     private void btnCustomerEvent(ActionEvent event) throws Exception {
-        CustomerOverviewController.currentUser = currentUser;
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/CustomerOverview.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-        stage.setScene(scene);
-        stage.setTitle("Customer Overview");
-        stage.show();
+        CustomerOverviewController.getUser(currentUser);
+        ((Node) event.getSource()).getScene().getWindow().hide();        
+        screen.change("CustomerOverview", "Customer Overview");
     }
 
     @FXML
     private void btnLogoutEvent(ActionEvent event) {
         System.out.println("Log out");
+    }
+    
+    public static void getUser(User user){
+        currentUser = user;
     }
 
 }

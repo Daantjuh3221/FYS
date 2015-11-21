@@ -1,6 +1,7 @@
 package Fys.Controllers;
 
 import Fys.Models.User;
+import Fys.Tools.Screen;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,7 +23,9 @@ import javafx.stage.Stage;
  */
 public class AccountAddController implements Initializable {
     
-    public static User currentUser;
+    private static User currentUser;
+    
+    private Screen screen = new Screen();
     
     @FXML private Label lblUsername;
     
@@ -32,16 +35,10 @@ public class AccountAddController implements Initializable {
     }
     
     @FXML
-    private void btnAccountEvent(ActionEvent event) throws IOException {
-        AccountOverviewController.currentUser = currentUser;
+    private void btnAccountEvent(ActionEvent event) throws Exception {
+        AccountOverviewController.getUser(currentUser);
         ((Node) event.getSource()).getScene().getWindow().hide();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/AccountOverview.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-        stage.setScene(scene);
-        stage.setTitle("Account Overview");
-        stage.show();
+        screen.change("AccountOverview", "Account Overview");
     }
     
     @FXML
@@ -50,16 +47,10 @@ public class AccountAddController implements Initializable {
     }
     
     @FXML
-    private void btnBackToOverviewEvent(ActionEvent event) throws IOException {
-        AccountOverviewController.currentUser = currentUser;
+    private void btnBackToOverviewEvent(ActionEvent event) throws Exception {
+        AccountOverviewController.getUser(currentUser);
         ((Node) event.getSource()).getScene().getWindow().hide();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/AccountOverview.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-        stage.setScene(scene);
-        stage.setTitle("Account Overview");
-        stage.show();
+        screen.change("AccountOverview", "Account Overview");
     }
     
     @FXML
@@ -67,4 +58,7 @@ public class AccountAddController implements Initializable {
         System.out.println("Log out");
     }
     
+    public static void getUser(User user){
+        currentUser =  user;
+    }
 }

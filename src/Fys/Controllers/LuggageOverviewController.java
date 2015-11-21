@@ -1,6 +1,7 @@
 package Fys.Controllers;
 
 import Fys.Models.User;
+import Fys.Tools.Screen;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,7 +23,7 @@ import javafx.stage.Stage;
  */
 public class LuggageOverviewController implements Initializable {
     
-    public static User currentUser;
+    private static User currentUser;
     
     @FXML private Label lblUsername;
     
@@ -32,29 +33,19 @@ public class LuggageOverviewController implements Initializable {
     }
     
     @FXML
-    private void btnCustomerEvent(ActionEvent event) throws IOException {
-        CustomerOverviewController.currentUser = currentUser;
+    private void btnCustomerEvent(ActionEvent event) throws Exception {
+        Screen screen = new Screen();
+        AccountAddController.getUser(currentUser);
         ((Node) event.getSource()).getScene().getWindow().hide();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/CustomerOverview.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-        stage.setScene(scene);
-        stage.setTitle("Customer Overview");
-        stage.show();
+        screen.change("CustomerOverview", "Customer Overview");
     }
     
     @FXML
-    private void btnAddLuggageEvent(ActionEvent event) throws IOException {
-        LuggageAddController.currentUser = currentUser;
+    private void btnAddLuggageEvent(ActionEvent event) throws Exception {
+        Screen screen = new Screen();
+        AccountAddController.getUser(currentUser);
         ((Node) event.getSource()).getScene().getWindow().hide();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/LuggageAdd.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-        stage.setScene(scene);
-        stage.setTitle("Add Luggage");
-        stage.show();
+        screen.change("LuggageAdd", "Add Luggage");
     }
     
     @FXML
@@ -66,5 +57,9 @@ public class LuggageOverviewController implements Initializable {
     private void btnLogoutEvent(ActionEvent event) {
         System.out.println("Log out");
     }  
+    
+    public static void getUser(User user)   {
+        currentUser = user;
+    }
     
 }

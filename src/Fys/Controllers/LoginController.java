@@ -58,37 +58,19 @@ public class LoginController implements Initializable {
         Screen screen = new Screen();
         switch (user.getRoleId()) {
             case (1): {
-                AccountOverviewController.currentUser = user;
+                AccountOverviewController.getUser(user);
                 return screen.change("AccountOverview", "Account Overview");
             }
             case (2): {
-                MainController.currentUser = user; //Has to be ManagerOverview.currentUser once class is made
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/ManagerOverview.fxml"));
-                Stage stage = new Stage();
-                stage.setScene(new Scene((Pane) loader.load()));
-                stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-                stage.setTitle("Manager Overview");
-                stage.show();
-                return stage;
+                MainController.getUser(user);
+                return screen.change("ManagerOverview", "Manager Overview");
             }
             case (3): {
-                LuggageOverviewController.currentUser = user;
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/LuggageOverview.fxml"));
-                Stage stage = new Stage();
-                stage.setScene(new Scene((Pane) loader.load()));
-                stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-                stage.setTitle("Luggage Overview");
-                stage.show();
-                return stage;
+                LuggageOverviewController.getUser(user);
+                return screen.change("LuggageOverview", "Luggage Overview");
             }
             default: {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/Main.fxml"));
-                Stage stage = new Stage();
-                stage.setScene(new Scene((Pane) loader.load()));
-                stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-                stage.setTitle("Main");
-                stage.show();
-                return stage;
+                return screen.change("Main", "Main");
             }
         }
     }
