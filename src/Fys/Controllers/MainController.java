@@ -1,6 +1,7 @@
 package Fys.Controllers;
 
 import Fys.Models.User;
+import Fys.Tools.Screen;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -32,6 +33,7 @@ public class MainController implements Initializable {
     
     @FXML
     private void btnLuggageEvent(ActionEvent event) throws Exception {
+        Screen screen = new Screen();
         LuggageOverviewController.currentUser = currentUser;
         ((Node) event.getSource()).getScene().getWindow().hide();
         Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/LuggageOverview.fxml"));
