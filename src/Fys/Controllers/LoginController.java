@@ -2,6 +2,7 @@ package Fys.Controllers;
 
 import Fys.Tools.Password;
 import Fys.Models.User;
+import Fys.Tools.Screen;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -54,16 +55,11 @@ public class LoginController implements Initializable {
     }
 
     public Stage loadScreen(User user) throws Exception {
+        Screen screen = new Screen();
         switch (user.getRoleId()) {
             case (1): {
                 AccountOverviewController.currentUser = user;
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/AccountOverview.fxml"));
-                Stage stage = new Stage();
-                stage.setScene(new Scene((Pane) loader.load()));
-                stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-                stage.setTitle("Account Overview");
-                stage.show();
-                return stage;
+                return screen.change("AccountOverview", "Account Overview");
             }
             case (2): {
                 MainController.currentUser = user; //Has to be ManagerOverview.currentUser once class is made
