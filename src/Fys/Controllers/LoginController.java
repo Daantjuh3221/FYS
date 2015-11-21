@@ -56,28 +56,28 @@ public class LoginController implements Initializable {
     public Stage loadScreen(User user) throws Exception {
         switch (user.getRoleId()) {
             case (1): {
+                AccountOverviewController.currentUser = user;
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/AccountOverview.fxml"));
                 Stage stage = new Stage();
                 stage.setScene(new Scene((Pane) loader.load()));
                 stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
                 stage.setTitle("Account Overview");
-                MainController.currentUser = user;
                 stage.show();
                 return stage;
             }
             case (2): {
+                MainController.currentUser = user; //Has to be ManagerOverview.currentUser once class is made
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/ManagerOverview.fxml"));
                 Stage stage = new Stage();
                 stage.setScene(new Scene((Pane) loader.load()));
                 stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
                 stage.setTitle("Manager Overview");
-                MainController.currentUser = user;
                 stage.show();
                 return stage;
             }
             case (3): {
-                CustomerOverviewController.currentUser = user;
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/CustomerOverview.fxml"));
+                LuggageOverviewController.currentUser = user;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/LuggageOverview.fxml"));
                 Stage stage = new Stage();
                 stage.setScene(new Scene((Pane) loader.load()));
                 stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
