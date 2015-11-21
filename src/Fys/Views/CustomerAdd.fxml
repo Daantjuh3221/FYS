@@ -79,7 +79,7 @@
                <children>
                   <ImageView fitHeight="102.0" fitWidth="180.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../corendonlogo.jpg" />
+                        <Image url="@../Content/Image/corendonlogo.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -91,7 +91,7 @@
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="username" layoutX="60.0" layoutY="16.0" prefHeight="20.0" prefWidth="125.0" text="username" textFill="WHITE">
+                  <Label fx:id="lblUsername" layoutX="60.0" layoutY="16.0" prefHeight="20.0" prefWidth="125.0" text="username" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>

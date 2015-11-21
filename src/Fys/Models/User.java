@@ -18,6 +18,7 @@ import java.sql.Statement;
  * @author Daan
  */
 public class User {
+
     private int id;
     private String username;
     private String password;
@@ -26,7 +27,7 @@ public class User {
     private int roleId;
     private Date registerDate;
     private boolean active;
-    
+
     private Role role;
 
     public User() {
@@ -39,7 +40,7 @@ public class User {
         this.active = true;
         this.role = new Role();
     }
-    
+
     public int getId() {
         return id;
     }
@@ -103,16 +104,16 @@ public class User {
     public void setActive(boolean active) {
         this.active = active;
     }
-    
-    public void setRole(Role role){
+
+    public void setRole(Role role) {
         this.role = role;
     }
-    
-    public Role getRole(){
+
+    public Role getRole() {
         return this.role;
     }
-    
-    public void insertUser(User user) throws ClassNotFoundException, SQLException{
+
+    public void insertUser(User user) throws ClassNotFoundException, SQLException {
         try (Connection db = new ConnectMysqlServer().dbConnect()) {
             String query = ("INSERT INTO users (username,password,firstname,lastname,roleid,registerdate,active) VALUES (?,?,?,?,?,?,?,?)");
             PreparedStatement preparedStatement = (PreparedStatement) db.prepareStatement(query);
@@ -126,12 +127,12 @@ public class User {
             preparedStatement.executeUpdate();
         }
     }
-    
-    public User getUserById(int id) throws ClassNotFoundException, SQLException{
+
+    public User getUserById(int id) throws ClassNotFoundException, SQLException {
         try (Connection db = new ConnectMysqlServer().dbConnect()) {
             Statement statement = db.createStatement();
             ResultSet result = statement.executeQuery("select * from users where id=" + id);
-            while(result.next()){
+            while (result.next()) {
                 this.id = result.getInt(1);
                 this.username = result.getString(2);
                 this.password = result.getString(3);
@@ -140,18 +141,18 @@ public class User {
                 this.roleId = result.getInt(6);
                 this.registerDate = result.getDate(7);
                 this.active = result.getBoolean(8);
-                
+
                 this.role = new Role().getRoleById(this.roleId);
             }
         }
         return this;
     }
-    
-    public User getUserByUsername(String username) throws ClassNotFoundException, SQLException{
+
+    public User getUserByUsername(String username) throws ClassNotFoundException, SQLException {
         try (Connection db = new ConnectMysqlServer().dbConnect()) {
             Statement statement = db.createStatement();
             ResultSet result = statement.executeQuery("select * from users where username='" + username + "'");
-            while(result.next()){
+            while (result.next()) {
                 this.id = result.getInt(1);
                 this.username = result.getString(2);
                 this.password = result.getString(3);

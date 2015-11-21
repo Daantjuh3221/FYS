@@ -1,5 +1,6 @@
 package Fys.Controllers;
 
+import Fys.Models.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,23 +11,50 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * Event Handling Class. This class maintains all of the eventhandling in the
- * application.
- * @author IS106-2 'IT in Black II'
+ * FXML Controller class. This class controls the Add Customer screen including it's
+ * features.
+ *
+ * @author Jeffrey van der Lingen, IS106-2
  */
 public class CustomerAddController implements Initializable {
     
-    @FXML
-    private void btnLuggageEvent(ActionEvent event) throws Exception {
-        changeScreen("FXMLLuggageOverview.fxml", "Luggage Overview", event);
+    public static User currentUser;
+    
+    @FXML private Label lblUsername;
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        lblUsername.setText(currentUser.getUsername());
     }
     
     @FXML
-    private void btnCustomerEvent(ActionEvent event) throws Exception {
-        changeScreen("FXMLCustomerOverview.fxml", "Luggage Overview", event);
+    private void btnLuggageEvent(ActionEvent event) throws IOException {
+        LuggageOverviewController.currentUser = currentUser;
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/LuggageOverview.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
+        stage.setScene(scene);
+        stage.setTitle("Luggage Overview");
+        stage.show();
+    }
+    
+    @FXML
+    private void btnCustomerEvent(ActionEvent event) throws IOException {
+        CustomerOverviewController.currentUser = currentUser;
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/CustomerOverview.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
+        stage.setScene(scene);
+        stage.setTitle("Customer Overview");
+        stage.show();
     }
     
     @FXML
@@ -35,8 +63,16 @@ public class CustomerAddController implements Initializable {
     }
     
     @FXML
-    private void btnBackToOverviewEvent(ActionEvent event) throws Exception {
-        changeScreen("FXMLCustomerOverview.fxml", "Luggage Overview", event);
+    private void btnBackToOverviewEvent(ActionEvent event) throws IOException {
+        CustomerOverviewController.currentUser = currentUser;
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/CustomerOverview.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
+        stage.setScene(scene);
+        stage.setTitle("Customer Overview");
+        stage.show();
     }
     
     @FXML
@@ -44,18 +80,4 @@ public class CustomerAddController implements Initializable {
         System.out.println("Log out");
     }
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    private void changeScreen(String FXMLfile, String setTitle, ActionEvent event) throws Exception{
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        Parent parent = FXMLLoader.load(getClass().getResource(FXMLfile));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        scene.getStylesheets().add("/Content/Css/stylesheet.css");
-        stage.setScene(scene);
-        stage.setTitle(setTitle);
-        stage.show();
-    }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Fys.Controllers;
 
 import Fys.Tools.Password;
@@ -15,65 +10,91 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
- * FXML Controller class
+ * FXML Controller class. This class controls the Login screen including it's
+ * features.
  *
- * @author Daan
+ * @author Daan Befort, Jeffrey van der Lingen, IS106-2
  */
 public class LoginController implements Initializable {
+    
+    @FXML private TextField txtUsername;
+    @FXML private PasswordField txtPassword;
+    @FXML private Label lblError;
 
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    }
+    
     @FXML
-    private TextField txtUsername;
-    @FXML
-    private PasswordField txtPassword;
-    @FXML
-    private Label lblError;
-    @FXML
-    private void btnLoginAction(ActionEvent event) throws Exception{
+    private void btnLoginAction(ActionEvent event) throws Exception {
         if (!txtUsername.getText().equals("") && !txtPassword.getText().equals("")) {
             User user = new User().getUserByUsername(txtUsername.getText());
-            if(user.getId() != 0){
+            if (user.getId() != 0) {
                 if (Password.check(txtPassword.getText(), user.getPassword())) {
-                   ((Node)event.getSource()).getScene().getWindow().hide();
-                    showUserDialog(user);
+                    ((Node) event.getSource()).getScene().getWindow().hide();
+                    loadScreen(user);
+                } else {
+                    lblError.setText("Invalid password");
                 }
-                else{
-                    lblError.setText("Invalid login");
-                }
+            } else {
+                lblError.setText("Invalid username");
             }
-            else{
-                lblError.setText("Invalid login");
-            }
-        }else{
+        } else {
             txtUsername.setStyle("-fx-text-box-border: red;");
             txtPassword.setStyle("-fx-text-box-border: red;");
             lblError.setText("Username and/or password is not filled");
         }
     }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    }   
-    
-    public Stage showUserDialog(User user) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/Main.fxml"));
-        Stage stage = new Stage(StageStyle.DECORATED);
-        stage.setScene(new Scene((Pane) loader.load()));
-        stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-        MainController controller = loader.<MainController>getController();
-        controller.currentUser(user);
-        
-        stage.setTitle("Main");
-        stage.show();
-        return stage;
+
+    public Stage loadScreen(User user) throws Exception {
+        switch (user.getRoleId()) {
+            case (1): {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/AccountOverview.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene((Pane) loader.load()));
+                stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
+                stage.setTitle("Account Overview");
+                MainController.currentUser = user;
+                stage.show();
+                return stage;
+            }
+            case (2): {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/ManagerOverview.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene((Pane) loader.load()));
+                stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
+                stage.setTitle("Manager Overview");
+                MainController.currentUser = user;
+                stage.show();
+                return stage;
+            }
+            case (3): {
+                CustomerOverviewController.currentUser = user;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/CustomerOverview.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene((Pane) loader.load()));
+                stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
+                stage.setTitle("Luggage Overview");
+                stage.show();
+                return stage;
+            }
+            default: {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/Main.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene((Pane) loader.load()));
+                stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
+                stage.setTitle("Main");
+                stage.show();
+                return stage;
+            }
+        }
     }
-    
+
 }

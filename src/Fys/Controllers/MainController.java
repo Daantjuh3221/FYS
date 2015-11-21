@@ -1,7 +1,6 @@
 package Fys.Controllers;
 
 import Fys.Models.User;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -12,24 +11,28 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
- * Event Handling Class. This class maintains all of the eventhandling in the
- * application.
+ * FXML Controller class. This class controls the Main screen including it's
+ * features.
  *
- * @author IS106-2 'IT in Black II'
+ * @author Jeffrey van der Lingen, IS106-2
  */
 public class MainController implements Initializable {
 
-    private User currentUser;
+    public static User currentUser;
+    
+    @FXML private Label lblUsername;
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        lblUsername.setText(currentUser.getUsername());
+    }
     
     @FXML
-    private Label lblUsername;
-    @FXML
     private void btnLuggageEvent(ActionEvent event) throws Exception {
+        LuggageOverviewController.currentUser = currentUser;
         ((Node) event.getSource()).getScene().getWindow().hide();
         Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/LuggageOverview.fxml"));
         Stage stage = new Stage();
@@ -42,8 +45,9 @@ public class MainController implements Initializable {
 
     @FXML
     private void btnCustomerEvent(ActionEvent event) throws Exception {
+        CustomerOverviewController.currentUser = currentUser;
         ((Node) event.getSource()).getScene().getWindow().hide();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/LuggageOverview.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Fys/Views/CustomerOverview.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(parent);
         scene.getStylesheets().add("/Fys/Content/Css/stylesheet.css");
@@ -57,13 +61,4 @@ public class MainController implements Initializable {
         System.out.println("Log out");
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
-    public void currentUser(User user) throws Exception{
-        this.currentUser = user;
-        
-        lblUsername.setText(user.getUsername());
-    }
 }

@@ -11,64 +11,64 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fys.Controllers.CustomerEditController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fys.Controllers.LuggageEditController">
    <center>
       <SplitPane prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Text layoutX="24.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer - Change Details">
+                  <Text layoutX="24.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage - Edit">
                      <font>
                         <Font name="Arial" size="26.0" />
                      </font>
                   </Text>
-                  <Text layoutX="24.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name">
+                  <Text layoutX="25.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="24.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name">
+                  <Text layoutX="25.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="24.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
+                  <Text layoutX="25.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Material">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="24.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone">
+                  <Text layoutX="25.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="54.6083984375">
+                  <Text layoutX="26.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" wrappingWidth="54.6083984375">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="24.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+                  <Text layoutX="25.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comments">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="firstName" layoutX="115.0" layoutY="114.0" prefHeight="25.0" prefWidth="200.0" />
-                  <TextField fx:id="lastName" layoutX="115.0" layoutY="145.0" prefHeight="25.0" prefWidth="200.0" />
-                  <ChoiceBox layoutX="115.0" layoutY="176.0" prefHeight="25.0" prefWidth="200.0" />
-                  <TextField fx:id="phoneNumber" layoutX="115.0" layoutY="208.0" prefHeight="25.0" prefWidth="200.0" />
-                  <TextField fx:id="address" layoutX="115.0" layoutY="239.0" prefHeight="25.0" prefWidth="200.0" />
-                  <TextField fx:id="email" layoutX="115.0" layoutY="270.0" prefHeight="25.0" prefWidth="200.0" />
-                  <Button fx:id="btnBackToOverview" alignment="CENTER" layoutX="24.0" layoutY="309.0" mnemonicParsing="false" onAction="#btnBackToOverviewEvent" prefHeight="25.0" prefWidth="172.0" styleClass="btnRed" text="Back to Customers Overview" textAlignment="CENTER" textOverrun="CLIP">
+                  <TextField fx:id="luggageType" layoutX="116.0" layoutY="104.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="luggageBrand" layoutX="116.0" layoutY="135.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="luggageMaterial" layoutX="116.0" layoutY="166.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="luggageColor" layoutX="116.0" layoutY="198.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Button fx:id="btnBackToOverview" alignment="CENTER" layoutX="24.0" layoutY="395.0" mnemonicParsing="false" onAction="#btnBackToOverviewEvent" prefHeight="25.0" prefWidth="172.0" styleClass="btnRed" text="Back to Luggage Overview" textAlignment="CENTER" textOverrun="CLIP">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnSaveChanges" alignment="CENTER" layoutX="220.0" layoutY="309.0" mnemonicParsing="false" onAction="#btnSaveChangesEvent" prefHeight="25.0" prefWidth="95.0" styleClass="btnRed" text="Save Changes" textAlignment="CENTER" textOverrun="CLIP">
+                  <Button fx:id="btnAddLuggage" alignment="CENTER" layoutX="221.0" layoutY="395.0" mnemonicParsing="false" onAction="#btnSaveChangesEvent" prefHeight="25.0" prefWidth="95.0" styleClass="btnRed" text="Save Changes" textAlignment="CENTER" textOverrun="CLIP">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnPrintProof" alignment="CENTER" layoutX="24.0" layoutY="61.0" mnemonicParsing="false" onAction="#btnPrintProofEvent" prefHeight="34.0" prefWidth="160.0" styleClass="btnRed" text="Print proof of registration" textAlignment="CENTER" textOverrun="CLIP">
+                  <TextArea layoutX="116.0" layoutY="264.0" prefHeight="116.0" prefWidth="350.0" />
+                  <ChoiceBox fx:id="status" layoutX="116.0" layoutY="229.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Button fx:id="btnPrintProof" alignment="CENTER" layoutX="24.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnPrintProofEvent" prefHeight="34.0" prefWidth="160.0" styleClass="btnRed" text="Print proof of registration" textAlignment="CENTER" textOverrun="CLIP">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>

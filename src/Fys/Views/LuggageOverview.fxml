@@ -17,7 +17,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TextField fx:id="textLuggageSearchBox" layoutX="24.0" layoutY="123.0" prefHeight="25.0" prefWidth="204.0" text="Search term..." />
+                  <TextField fx:id="textLuggageSearchBox" layoutX="24.0" layoutY="123.0" prefHeight="25.0" prefWidth="204.0" promptText="Search term..." />
                   <Text layoutX="24.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage - Overview">
                      <font>
                         <Font name="Arial" size="26.0" />
@@ -53,7 +53,7 @@
                <children>
                   <ImageView fitHeight="102.0" fitWidth="180.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../corendonlogo.jpg" />
+                        <Image url="@../Content/Image/corendonlogo.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -65,14 +65,14 @@
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="username" layoutX="60.0" layoutY="16.0" prefHeight="20.0" prefWidth="125.0" text="username" textFill="WHITE">
+                  <Label fx:id="lblUsername" layoutX="60.0" layoutY="16.0" prefHeight="20.0" prefWidth="125.0" text="username" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <Button fx:id="btnLuggage" alignment="CENTER" layoutX="14.0" layoutY="160.0" mnemonicParsing="false" onAction="#btnLuggageEvent" prefHeight="25.0" prefWidth="172.0" styleClass="btnWhite" text="Luggage" textAlignment="CENTER" textOverrun="CLIP" />
+            <Button fx:id="btnLuggage" alignment="CENTER" layoutX="14.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" styleClass="btnWhite" text="Luggage" textAlignment="CENTER" textOverrun="CLIP" />
             <Button fx:id="btnCustomers" alignment="CENTER" layoutX="14.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnCustomerEvent" prefHeight="25.0" prefWidth="172.0" styleClass="btnWhite" text="Customers" textAlignment="CENTER" textOverrun="CLIP" />
          </children>
       </AnchorPane>
