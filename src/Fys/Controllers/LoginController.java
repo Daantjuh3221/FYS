@@ -53,7 +53,7 @@ public class LoginController implements Initializable {
         }
     }
 
-    public Stage loadScreen(User user) throws Exception {
+    private void loadScreen(User user) throws Exception {
         switch (user.getRoleId()) {
             case (1): {
                 AccountOverviewController.currentUser = user;
@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
                 stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
                 stage.setTitle("Account Overview");
                 stage.show();
-                return stage;
+                break;
             }
             case (2): {
                 StatisticsTotalLuggageController.currentUser = user;
@@ -73,7 +73,7 @@ public class LoginController implements Initializable {
                 stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
                 stage.setTitle("Statistics - Total");
                 stage.show();
-                return stage;
+                break;
             }
             case (3): {
                 LuggageOverviewController.currentUser = user;
@@ -81,9 +81,9 @@ public class LoginController implements Initializable {
                 Stage stage = new Stage();
                 stage.setScene(new Scene((Pane) loader.load()));
                 stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-                stage.setTitle("Customer Overview");
+                stage.setTitle("Luggage Overview");
                 stage.show();
-                return stage;
+                break;
             }
             default: {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/Main.fxml"));
@@ -92,7 +92,7 @@ public class LoginController implements Initializable {
                 stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
                 stage.setTitle("Main");
                 stage.show();
-                return stage;
+                break;
             }
         }
     }
