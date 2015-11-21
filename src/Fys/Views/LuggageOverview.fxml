@@ -17,13 +17,13 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TextField fx:id="textLuggageSearchBox" layoutX="24.0" layoutY="123.0" prefHeight="25.0" prefWidth="204.0" promptText="Search term..." />
+                  <TextField fx:id="fieldLuggageSearchBox" layoutX="24.0" layoutY="123.0" prefHeight="25.0" prefWidth="204.0" promptText="Search term..." />
                   <Text layoutX="24.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage - Overview">
                      <font>
                         <Font name="Arial" size="26.0" />
                      </font>
                   </Text>
-                  <Button fx:id="btnSearchLuggage" layoutX="338.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnSearchLuggageEvent" styleClass="btnRed" text="Search" />
+                  <Button fx:id="btnSearchLuggage" layoutX="360.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnSearchLuggageEvent" styleClass="btnRed" text="Search" />
                   <Button fx:id="btnAddLuggage" layoutX="672.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnAddLuggageEvent" styleClass="btnRed" text="+ Add Luggage" />
                   <TableView layoutX="24.0" layoutY="187.0" prefHeight="463.0" prefWidth="745.0">
                     <columns>
@@ -35,13 +35,18 @@
                         <TableColumn prefWidth="70.6666259765625" text="Status" />
                     </columns>
                   </TableView>
-                  <SplitMenuButton fx:id="btnLuggageType" layoutX="246.0" layoutY="122.0" mnemonicParsing="false" text="Status">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Lost" />
-                      <MenuItem mnemonicParsing="false" text="Found" />
-                        <MenuItem mnemonicParsing="false" text="Connected" />
-                    </items>
-                  </SplitMenuButton>
+                  <MenuButton fx:id="ddwnLuggageType" layoutX="236.0" layoutY="123.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Luggage Type">
+                     <items>
+                      <MenuItem fx:id="ddwnLuggageLost" mnemonicParsing="false" onAction="#ddwnLuggageLostEvent" text="Lost" />
+                      <MenuItem fx:id="ddwnLuggageFound" mnemonicParsing="false" onAction="#ddwnLuggageFoundEvent" text="Found" />
+                        <MenuItem fx:id="ddwnLuggageConnected" mnemonicParsing="false" onAction="#ddwnLuggageConnectedEvent" text="Connected" />
+                     </items>
+                  </MenuButton>
+                  <Label fx:id="lblErrorMessage" layoutX="422.0" layoutY="128.0" prefHeight="15.0" prefWidth="185.0" textFill="RED">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
         </items>
       </SplitPane>
