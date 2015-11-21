@@ -66,12 +66,12 @@ public class LoginController implements Initializable {
                 return stage;
             }
             case (2): {
-                MainController.currentUser = user; //Has to be ManagerOverview.currentUser once class is made
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/ManagerOverview.fxml"));
+                StatisticsTotalLuggageController.currentUser = user;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fys/Views/StatisticsTotalLuggage.fxml"));
                 Stage stage = new Stage();
                 stage.setScene(new Scene((Pane) loader.load()));
                 stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-                stage.setTitle("Manager Overview");
+                stage.setTitle("Statistics - Total");
                 stage.show();
                 return stage;
             }
@@ -81,7 +81,7 @@ public class LoginController implements Initializable {
                 Stage stage = new Stage();
                 stage.setScene(new Scene((Pane) loader.load()));
                 stage.getScene().getStylesheets().add("/Fys/Content/Css/stylesheet.css");
-                stage.setTitle("Luggage Overview");
+                stage.setTitle("Customer Overview");
                 stage.show();
                 return stage;
             }

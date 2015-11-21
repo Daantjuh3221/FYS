@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fys.Controllers.StatisticsTotalLuggageController">
+   <center>
+      <SplitPane prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Text layoutX="24.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics - Total Luggage">
+                     <font>
+                        <Font name="Arial" size="26.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="24.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Total Luggage statistics show a bar chart of all luggage of a certain type: Lost, Found or Connected. A start and end date can also be specified to get a specific timerange. Press &quot;Print Statistics&quot; to print the current chart." wrappingWidth="321.486328125" />
+                  <Text layoutX="129.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="startDate" layoutX="24.0" layoutY="136.0" prefHeight="25.0" prefWidth="97.0" promptText="Start Date" />
+                  <TextField fx:id="endDate" layoutX="143.0" layoutY="136.0" prefHeight="25.0" prefWidth="97.0" promptText="End Date" />
+                  <Button fx:id="btnFilter" layoutX="365.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnFilterEvent" styleClass="btnRed" text="Filter" />
+                  <Button fx:id="btnPrintStatistics" layoutX="671.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnPrintStatisticsEvent" styleClass="btnRed" text="Print Statistics" />
+                  <BarChart layoutX="24.0" layoutY="180.0" prefHeight="463.0" prefWidth="740.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <MenuButton fx:id="ddwnLuggageType" layoutX="253.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Select Type">
+                    <items>
+                      <MenuItem fx:id="ddwnLostLuggage" mnemonicParsing="false" onAction="#ddwnLostLuggageEvent" text="Lost" />
+                      <MenuItem fx:id="ddwnFoundLuggage" mnemonicParsing="false" onAction="#ddwnFoundLuggageEvent" text="Found" />
+                        <MenuItem fx:id="ddwnConnectedLuggage" mnemonicParsing="false" onAction="#ddwnConnectedLuggageEvent" text="Connected" />
+                    </items>
+                  </MenuButton>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B71C1C;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <ImageView fitHeight="102.0" fitWidth="180.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Content/Image/corendonlogo.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="100.0" prefHeight="51.0" prefWidth="200.0" style="-fx-background-color: #991818;">
+               <children>
+                  <Label layoutX="14.0" layoutY="16.0" text="Hello, " textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblUsername" layoutX="60.0" layoutY="16.0" prefHeight="20.0" prefWidth="125.0" text="username" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btnTotalLuggage" alignment="CENTER" layoutX="14.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" styleClass="btnWhite" text="Statistics in total" textAlignment="CENTER" textOverrun="CLIP" />
+            <Button fx:id="btnLuggagePerEmployee" alignment="CENTER" layoutX="14.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnLuggagePerEmployeeEvent" prefHeight="25.0" prefWidth="172.0" styleClass="btnWhite" text="Stastitics per employee" textAlignment="CENTER" textOverrun="CLIP" />
+         </children>
+      </AnchorPane>
+   </left>
+   <bottom>
+      <AnchorPane prefHeight="30.0" prefWidth="750.0" style="-fx-background-color: #991818;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnLogout" alignment="CENTER" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#btnLogoutEvent" styleClass="btnWhite" text="Log out" textAlignment="CENTER" textOverrun="CLIP" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
