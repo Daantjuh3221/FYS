@@ -15,7 +15,19 @@
    <center>
       <SplitPane prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you reach this screen, something has gone wrong. Please restart the application." wrappingWidth="284.845703125">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error">
+                     <font>
+                        <Font name="Arial" size="26.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
         </items>
       </SplitPane>
    </center>
@@ -45,8 +57,6 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Button fx:id="btnLuggage" alignment="CENTER" layoutX="14.0" layoutY="160.0" mnemonicParsing="false" onAction="#btnLuggageEvent" prefHeight="25.0" prefWidth="172.0" styleClass="btnWhite" text="Luggage" textAlignment="CENTER" textOverrun="CLIP" />
-            <Button fx:id="btnCustomers" alignment="CENTER" layoutX="14.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnCustomerEvent" prefHeight="25.0" prefWidth="172.0" styleClass="btnWhite" text="Customers" textAlignment="CENTER" textOverrun="CLIP" />
          </children>
       </AnchorPane>
    </left>
